@@ -1,9 +1,29 @@
 const express = require("express");
 const pool = require("../db");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
+require("dotenv");
+
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || "your_secret_key";
+
+function verifyToken(req, res, next) {
+  const token = req.headers.authorization;
+
+  if (!token) {
+    return res.status(403).json({ message: "No token provided" });
+  }
+
+  jwt.verify(token, JWT_SECRET_KEY, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    req.userId = decoded.userId;
+    next();
+  });
+}
 
 // LIST PRODUCT
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const query = "SELECT * FROM products";
     const { rows } = await pool.query(query);
@@ -16,7 +36,7 @@ router.get("/", async (req, res) => {
 });
 
 // DETAIL PRODUCT
-router.get("/:id", async (req, res) => {
+router.get("/:id", verifyToken, async (req, res) => {
   try {
     const productId = req.params.id;
 

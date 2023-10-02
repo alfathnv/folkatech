@@ -59,7 +59,7 @@ async function seedDataIntoDatabase() {
 
     for (const data of userDatas) {
       const query =
-        "INSERT INTO users (first_name, last_name, email, contact, password) VALUES ($1, $2, $3, $4, $5)";
+        "INSERT INTO users (first_name, last_name, email, contact, password) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (email) DO NOTHING";
       const values = [
         data.first_name,
         data.last_name,
