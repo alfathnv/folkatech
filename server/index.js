@@ -13,8 +13,8 @@ app.get("/", (req, res) => {
 });
 
 // Impor rute-rute pengguna dan produk
-const userRoutes = require("./userRoutes");
-const productRoutes = require("./productRoutes");
+const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 // Gunakan rute-rute tersebut
 app.use("/users", userRoutes);
