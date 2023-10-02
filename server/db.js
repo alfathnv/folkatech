@@ -22,7 +22,10 @@ async function seedDataIntoDatabase() {
         name VARCHAR(255) NOT NULL,
         store VARCHAR(255) NOT NULL,
         price NUMERIC NOT NULL,
-        image_data bytea
+        image_data bytea,
+        description VARCHAR(255),
+        rating NUMERIC,
+        ratingCount NUMERIC
       );
     `);
 
@@ -30,8 +33,16 @@ async function seedDataIntoDatabase() {
       const imagePath = path.join(__dirname, "server/", data.image);
       const imageBuffer = fs.readFileSync(imagePath);
       const query =
-        "INSERT INTO products (name, store, price, image_data) VALUES ($1, $2, $3, $4)";
-      const values = [data.name, data.store, data.price, imageBuffer];
+        "INSERT INTO products (name, store, price, image_data, description, rating, ratingCount) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+      const values = [
+        data.name,
+        data.store,
+        data.price,
+        imageBuffer,
+        data.description,
+        data.rating,
+        data.ratingCount,
+      ];
       await client.query(query, values);
     }
 
