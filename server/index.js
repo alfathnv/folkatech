@@ -12,23 +12,14 @@ app.get("/", (req, res) => {
   res.send("Selamat datang di server REST API!");
 });
 
+// Impor rute-rute pengguna dan produk
+const userRoutes = require("./userRoutes");
+const productRoutes = require("./productRoutes");
+
+// Gunakan rute-rute tersebut
+app.use("/users", userRoutes);
+app.use("/products", productRoutes);
+
 app.listen(port, () => {
   console.log(`Server berjalan di port ${port}`);
-});
-
-app.post("/register", (req, res) => {
-  res.send("Registrasi berhasil");
-});
-
-app.post("/login", (req, res) => {
-  res.send("Login berhasil");
-});
-
-app.get("/products", (req, res) => {
-  res.json({ products: [] });
-});
-
-app.get("/products/:id", (req, res) => {
-  const productId = req.params.id;
-  res.json({ product: {} });
 });
