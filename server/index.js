@@ -12,11 +12,9 @@ app.get("/", (req, res) => {
   res.send("Selamat datang di server REST API!");
 });
 
-// Impor rute-rute pengguna dan produk
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 
-// Gunakan rute-rute tersebut
 app.use("/users", userRoutes);
 app.use("/products", productRoutes);
 

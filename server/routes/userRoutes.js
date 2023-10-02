@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const pool = require("../db");
 
-// Rute untuk registrasi pengguna
+// REGISTER USER
 router.post("/register", (req, res) => {
   res.send("Registrasi berhasil");
 });
 
-// Rute untuk login pengguna
-router.post("/login", (req, res) => {
-  res.send("Login berhasil");
-});
+// LOGIN USER
+// router.post("/login", (req, res) => {
+//   res.send("Login berhasil");
+// });
 
 module.exports = router;
