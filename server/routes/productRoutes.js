@@ -2,9 +2,9 @@ const express = require("express");
 const pool = require("../db");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-require("dotenv");
+require("dotenv").config();
 
-const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || "your_secret_key";
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
 function verifyToken(req, res, next) {
   const token = req.headers.authorization;
