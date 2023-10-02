@@ -6,12 +6,12 @@ const randomNumber = () => {
   return Math.floor(Math.random() * 90) + 10;
 };
 
-const productData = [
+const productDatas = [
   {
     name: "ABID CLEVER DRIPPER 102",
     store: "UBRUKOPI",
     price: 480000,
-    image: "../assets/image_1.png",
+    image: "assets/image_1.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -21,7 +21,7 @@ const productData = [
     name: "ABID CLEVER DRIPPER 102",
     store: "UBRUKOPI",
     price: 480000,
-    image: "../assets/image_2.png",
+    image: "assets/image_2.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -31,7 +31,7 @@ const productData = [
     name: "ABID CLEVER DRIPPER 102",
     store: "UBRUKOPI",
     price: 480000,
-    image: "../assets/image_3.png",
+    image: "assets/image_3.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -41,7 +41,7 @@ const productData = [
     name: "Almond Biscuit",
     store: "G COFFEE ROASTERY",
     price: 250000,
-    image: "../assets/image_4.png",
+    image: "assets/image_4.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -51,7 +51,7 @@ const productData = [
     name: "Aceh Gayo Coffee Beans...",
     store: "ANOMALI COFFEE",
     price: 90000,
-    image: "../assets/image_5.png",
+    image: "assets/image_5.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -61,7 +61,7 @@ const productData = [
     name: "Blackpearl Coffee Beans...",
     store: "ANOMALI COFFEE",
     price: 90000,
-    image: "../assets/image_6.png",
+    image: "assets/image_6.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -71,7 +71,7 @@ const productData = [
     name: "Bokasso #3",
     store: "TITIK TEMU ROASTERY",
     price: 160000,
-    image: "../assets/image_3.png",
+    image: "assets/image_3.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -81,7 +81,7 @@ const productData = [
     name: "Ciwidey West Java Frinsa ...",
     store: "REIROM COFFEE SOLUTION",
     price: 104500,
-    image: "../assets/image_7.png",
+    image: "assets/image_7.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -91,7 +91,7 @@ const productData = [
     name: "Espresso Blend - Kungfu Kicks",
     store: "G COFFEE ROASTERY",
     price: 185000,
-    image: "../assets/image_1.png",
+    image: "assets/image_1.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -101,7 +101,7 @@ const productData = [
     name: "Espresso Blend 1.0 - 200gr",
     store: "G COFFEE ROASTERY",
     price: 99000,
-    image: "../assets/image_7.png",
+    image: "assets/image_7.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -111,7 +111,7 @@ const productData = [
     name: "Ethiopia Guji Washed",
     store: "IRENK BEANS",
     price: 150000,
-    image: "../assets/image_8.png",
+    image: "assets/image_8.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -121,7 +121,7 @@ const productData = [
     name: "Flores Colol Coffee Beans...",
     store: "ANOMALI COFFEE",
     price: 90000,
-    image: "../assets/image_2.png",
+    image: "assets/image_2.png",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
@@ -129,4 +129,4 @@ const productData = [
   },
 ];
 
-module.exports = productData;
+module.exports = productDatas;
