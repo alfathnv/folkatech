@@ -11,6 +11,7 @@ const pool = new Pool({
 });
 
 const productDatas = require("./datas/productDatas");
+const userDatas = require("./datas/userDatas");
 
 async function seedDataIntoDatabase() {
   const client = await pool.connect();
@@ -29,6 +30,17 @@ async function seedDataIntoDatabase() {
       );
     `);
 
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id serial PRIMARY KEY,
+        first_name VARCHAR(255) NOT NULL,
+        last_name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        contact VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL
+      );
+    `);
+
     for (const data of productDatas) {
       const imagePath = path.join(__dirname, data.image);
       const query =
@@ -41,6 +53,19 @@ async function seedDataIntoDatabase() {
         data.description,
         data.rating,
         data.ratingCount,
+      ];
+      await client.query(query, values);
+    }
+
+    for (const data of userDatas) {
+      const query =
+        "INSERT INTO users (first_name, last_name, email, contact, password) VALUES ($1, $2, $3, $4, $5)";
+      const values = [
+        data.first_name,
+        data.last_name,
+        data.email,
+        data.contact,
+        data.password,
       ];
       await client.query(query, values);
     }
