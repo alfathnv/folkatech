@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./LoginForm.scss";
+import axios from "axios";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -18,15 +20,27 @@ const LoginForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = () => {
-    console.log("Email:", email);
-    console.log("Password:", password);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:5000/users/login", {
+        email,
+        password,
+      });
+      localStorage.setItem("token", response.data);
+      window.location.href = "/";
+    } catch (err) {
+      setError("Login failed. Please check your credentials.");
+      console.error("Login error:", err);
+    }
   };
 
   return (
     <div className="login-form">
       <h2>Masuk</h2>
-      <div className="form-group">
+      {error && <p className="error">{error}</p>}
+      <form className="form-group" onSubmit={handleSubmit}>
         <div className="email">
           <input
             type="email"
@@ -46,11 +60,12 @@ const LoginForm = () => {
             <p>{showPassword ? "Hide" : "Show"}</p>
           </button>
         </div>
-      </div>
-      <a>Lupa Password?</a>
-      <button className="login-button" onClick={handleLogin}>
-        Masuk
-      </button>
+        <a>Lupa Password?</a>
+        <button type="submit" className="login-button">
+          Masuk
+        </button>
+      </form>
+
       <div className="separator"></div>
       <p className="register-link">
         Belum punya akun? <a href="/register">Daftar Sekarang</a>
