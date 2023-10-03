@@ -9,6 +9,7 @@ run in [http://localhost:3000](http://localhost:3000)
 Open server folder
 
 fill the .env
+
 JWT_SECRET_KEY=your_jwt_secret_key
 
 DB_USER=your_db_user --postgres
