@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 
+app.use("/assets", express.static("./assets"));
 app.use("/users", userRoutes);
 app.use("/products", productRoutes);
 

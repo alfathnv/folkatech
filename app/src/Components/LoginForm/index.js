@@ -28,7 +28,7 @@ const LoginForm = () => {
         email,
         password,
       });
-      localStorage.setItem("token", response.data);
+      localStorage.setItem("token", response.data.token);
       window.location.href = "/";
     } catch (err) {
       setError("Login failed. Please check your credentials.");

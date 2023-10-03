@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import Header from "../Components/Header";
+import Main from "../Components/Main";
+import "./Home.scss";
 
 const Home = () => {
   useEffect(() => {
@@ -9,7 +12,16 @@ const Home = () => {
     }
   }, []);
 
-  return <div>Home</div>;
+  return (
+    <div className="home-container">
+      <div className="header">
+        <Header />
+      </div>
+      <div className="main">
+        <Main />
+      </div>
+    </div>
+  );
 };
 
 export default Home;

@@ -24,10 +24,10 @@ async function seedDataIntoDatabase() {
         name VARCHAR(255) NOT NULL,
         store VARCHAR(255) NOT NULL,
         price NUMERIC NOT NULL,
-        image VARCHAR(255),
+        image VARCHAR(255) NOT NULL,
         description VARCHAR(255),
         rating NUMERIC,
-        ratingCount NUMERIC
+        rating_count NUMERIC
       );
     `);
 
@@ -43,9 +43,9 @@ async function seedDataIntoDatabase() {
     `);
 
     for (const data of productDatas) {
-      const imagePath = path.join(__dirname, data.image);
+      const imagePath = path.join(data.image);
       const query =
-        "INSERT INTO products (name, store, price, image, description, rating, ratingCount) VALUES ($1, $2, $3, $4, $5, $6, $7)";
+        "INSERT INTO products (name, store, price, image, description, rating, rating_count) VALUES ($1, $2, $3, $4, $5, $6, $7)";
       const values = [
         data.name,
         data.store,
@@ -53,7 +53,7 @@ async function seedDataIntoDatabase() {
         imagePath,
         data.description,
         data.rating,
-        data.ratingCount,
+        data.rating_count,
       ];
       await client.query(query, values);
     }

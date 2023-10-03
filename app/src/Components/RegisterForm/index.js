@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./RegisterForm.scss";
-import { Link } from "react-router-dom";
+import axios from "axios";
 
 const RegisterForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -13,6 +13,7 @@ const RegisterForm = () => {
   const [showPasswordConfirmation, setShowPasswordConfirmation] =
     useState(false);
   const [nextForm, setNextform] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -27,7 +28,7 @@ const RegisterForm = () => {
   };
 
   const handleContactChange = (e) => {
-    setEmail(e.target.value);
+    setContact(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -52,6 +53,39 @@ const RegisterForm = () => {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (password !== passwordConfirmation) {
+      return setError("Confirmation Password berbeda!");
+    }
+
+    const formData = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      password: password,
+      contact: contact,
+    };
+
+    try {
+      // Send a POST request to your registration API endpoint
+      const response = await axios.post(
+        "http://localhost:5000/users/register",
+        formData
+      );
+      if (response.data) {
+        window.location.href = "/";
+      }
+      // Handle the response, e.g., show a success message
+      console.log("Registration successful", response.data);
+    } catch (error) {
+      // Handle any registration errors, e.g., show an error message
+      console.error("Registration error", error);
+      setError(error.response.data.message);
+    }
+  };
+
   return (
     <div className="login-form">
       {!nextForm ? (
@@ -61,7 +95,8 @@ const RegisterForm = () => {
           {"<| Kembali"}
         </h2>
       )}
-      <div className="form-group">
+      {error && <p className="error">{error}</p>}
+      <form className="form-group" onSubmit={handleSubmit}>
         {!nextForm ? (
           <>
             <div className="first_name">
@@ -70,6 +105,7 @@ const RegisterForm = () => {
                 placeholder="Nama Depan"
                 value={firstName}
                 onChange={handleFirstNameChange}
+                required
               />
             </div>
             <div className="last_name">
@@ -78,6 +114,7 @@ const RegisterForm = () => {
                 placeholder="Nama Belakang"
                 value={lastName}
                 onChange={handleLastNameChange}
+                required
               />
             </div>
             <div className="email">
@@ -86,6 +123,7 @@ const RegisterForm = () => {
                 placeholder="Email"
                 value={email}
                 onChange={handleEmailChange}
+                required
               />
             </div>
           </>
@@ -97,6 +135,7 @@ const RegisterForm = () => {
                 placeholder="Nomor Telepon"
                 value={contact}
                 onChange={handleContactChange}
+                required
               />
             </div>
             <div className="password">
@@ -105,6 +144,7 @@ const RegisterForm = () => {
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
+                required
               />
               <button
                 className="toggle-password"
@@ -119,6 +159,7 @@ const RegisterForm = () => {
                 placeholder="Konfirmasi Password"
                 value={passwordConfirmation}
                 onChange={handlePasswordConfirmationChange}
+                required
               />
               <button
                 className="toggle-password"
@@ -129,10 +170,17 @@ const RegisterForm = () => {
             </div>
           </>
         )}
-      </div>
-      <button className="next-button" onClick={handleNextForm}>
-        {!nextForm ? "Selanjutnya" : "Register"}
-      </button>
+        {!nextForm ? (
+          <button className="next-button" onClick={handleNextForm}>
+            Selanjutnya
+          </button>
+        ) : (
+          <button type="submit" className="next-button">
+            Register
+          </button>
+        )}
+      </form>
+
       <div className="separator"></div>
       <p className="register-link">
         Sudah punya akun? <a href="/login">Masuk</a>

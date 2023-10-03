@@ -15,7 +15,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "ABID CLEVER DRIPPER 102",
@@ -25,7 +25,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "ABID CLEVER DRIPPER 102",
@@ -35,7 +35,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Almond Biscuit",
@@ -45,7 +45,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Aceh Gayo Coffee Beans...",
@@ -55,7 +55,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Blackpearl Coffee Beans...",
@@ -65,7 +65,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Bokasso #3",
@@ -75,7 +75,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Ciwidey West Java Frinsa ...",
@@ -85,7 +85,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Espresso Blend - Kungfu Kicks",
@@ -95,7 +95,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Espresso Blend 1.0 - 200gr",
@@ -105,7 +105,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Ethiopia Guji Washed",
@@ -115,7 +115,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
   {
     name: "Flores Colol Coffee Beans...",
@@ -125,7 +125,7 @@ const productDatas = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in risus eget justo consequat vehicula.",
     rating: randomDecimalNumber(),
-    ratingCount: randomNumber(),
+    rating_count: randomNumber(),
   },
 ];
 
