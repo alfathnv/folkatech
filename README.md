@@ -28,6 +28,9 @@ run in [http://localhost:5000](http://localhost:5000)
 
 ## POSTMAN
 invitation to [Postman Link](https://app.getpostman.com/join-team?invite_code=594f64727fb5cb73edf5455f2b1b2150&target_code=bafc3d4a67c6d3994f8e73a28fd7209d)
+
 fill the environtment
+
 url = http://localhost:5000
+
 token = your_jwt_token (after login)
